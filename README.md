@@ -17,7 +17,7 @@ Check out this [article](https://opensource.guide/how-to-contribute/) if you're 
 
 - Community Impact: Help long-distance couples feel closer than ever.
 - Technical Challenge: Work on real-time systems, data scraping, and complex matching algorithms.
-- Practice new skills: Our stack includes React, FastAPI, PostgreSQL, and various cloud services, providing a learning opportunity across different technologies.
+- Practice new skills: Our stack includes Vue.js, FastAPI, PostgreSQL, and various cloud services, providing a learning opportunity across different technologies.
 
 ## Donation
 
