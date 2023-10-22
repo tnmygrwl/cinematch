@@ -101,6 +101,23 @@ async def websocket_endpoint(websocket: WebSocket):
         await websocket.send_text(f"Message text was: {data}")
 
 
+# Could be done differently, like filtering by service name
+@app.post("/streaming_services/")
+async def select_streaming_service(
+    service_name: str, db: SessionLocal = Depends(get_db)
+):
+    # Fetch movie data from the streaming service API
+    movie_data = fetch_movies_from_service(service_name)
+
+    # Populate the database with the movie data
+    for movie in movie_data:
+        db_movie = Movie(**movie)
+        db.add(db_movie)
+    db.commit()
+
+    return {"message": f"Added movies from {service_name}"}
+
+
 if __name__ == "__main__":
     import uvicorn
 

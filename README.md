@@ -4,6 +4,9 @@
 
 CineMatch aims to revolutionize the way long-distance couples experience movies together. It's not just another movie recommendation app; it's a bonding experience. Our platform offers a simple yet interactive interface where couples can swipe right or left on a curated list of films, complete with IMDb and Rotten Tomatoes ratings. When both partners swipe right, it's a match! Now all that's left is to decide who's making the popcorn.
 
+Potential extension:
+A goodreads but for movies. Letterboxd exists but it's not free and doesn't have the smart recommendation features.
+
 ## Features
 
 - Real-time Swiping: Sync your movie preferences in real-time.
@@ -19,26 +22,40 @@ Check out this [article](https://opensource.guide/how-to-contribute/) if you're 
 - Technical Challenge: Work on real-time systems, data scraping, and complex matching algorithms.
 - Practice new skills: Our stack includes Vue.js, FastAPI, PostgreSQL, and various cloud services, providing a learning opportunity across different technologies.
 
-## Donation
+## Support
 
-Your financial support will enable us to maintain server costs, API subscriptions, and further development to make CineMatch even better. Every contribution counts!
+Your financial support will enable us to maintain server costs, API subscriptions, and further development to make CineMatch even better. Every contribution counts, use the sponsor button or contact me at <tanmayagrawa@umass.edu>!
 
-# TODO:
+## TODO
 
-- Set Up Cloud Services
-
-- set up EC2 for hosting, RDS for the PostgreSQL database, S3 for static files, and Route53 for DNS management.
+- Set Up cloud services
+- Set up EC2 for hosting, RDS for the PostgreSQL database, S3 for static files, and Route53 for DNS management.
 - API Integrations: Integrate TMDB, IMDb, and Rotten Tomatoes APIs. If IMDb and Rotten Tomatoes APIs are not available, you'll need to implement web scraping.
+
+### Proposed LLM features
+  
+- Personalized Movie Descriptions: Use LLMs to write engaging, personalized movie descriptions based on users' past likes and preferences.
+
+- Recommendation Explanations: When a match is made, use LLMs to provide a detailed explanation of why this movie could be a good choice for both users.
+
+- Questions/Trivia/Hype: Implement a chat feature where the LLM can answer questions about the movie, discuss similar movies, or hype you up about the movie. For e.g. I personally love to know trivia or real-world connections.
+
+- Tiebreaker: Use LLMs to summarize long reviews or aggregate multiple reviews into a concise summary for breaking ties.
 
 ## Backend Development
 
-We're using FastAPI for the web framework, SQLAlchemy for ORM, and Pydantic for data validation because that's what i like. Implement the following endpoints:
+We're using FastAPI for the web framework, SQLAlchemy for ORM, and Pydantic for data validation because that's what i like. Fastapi's good because it's sufficiently performant among JS and Python [frameworks](https://www.techempower.com/benchmarks/#section=data-r21&test=query) but I am open to moving high-throughput endpoints to rust/go servers.
+
+Implement the following endpoints:
 
 - POST /login
 - POST /signup
-- GET /movies
+- POST /streaming_services
+- GET /movies (also personalized descriptions)
 - POST /swipe
-- GET /match
+- GET /match (also recommendation explanations)
+- POST /hype
+- GET /tiebreak
 
 Also, implement real-time matching notifications using WebSocket.
 

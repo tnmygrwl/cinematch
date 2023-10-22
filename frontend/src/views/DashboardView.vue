@@ -12,6 +12,7 @@
   
   <script>
   import MovieCard from '@/components/MovieCard.vue';
+  import axios from 'axios';
   
   export default {
     name: 'DashboardView',
@@ -45,6 +46,11 @@
   
         // Remove the movie from the list.
         this.movies = this.movies.filter(m => m.id !== movie.id);
+      },
+      selectService(serviceName) {
+        axios.post('/streaming_services', { service_name: serviceName })
+        .then(response => console.log(response.data.message))
+        .catch(error => console.error(error));
       },
     },
   };
