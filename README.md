@@ -1,4 +1,4 @@
-# CineMatch: The Long-Distance Movie Date
+# CineMatch: the long-distance movie date
 
 ## Description
 
@@ -23,3 +23,37 @@ Check out this [article](https://opensource.guide/how-to-contribute/) if you're 
 
 Your financial support will enable us to maintain server costs, API subscriptions, and further development to make CineMatch even better. Every contribution counts!
 
+# TODO:
+
+- Set Up Cloud Services
+
+- set up EC2 for hosting, RDS for the PostgreSQL database, S3 for static files, and Route53 for DNS management.
+- API Integrations: Integrate TMDB, IMDb, and Rotten Tomatoes APIs. If IMDb and Rotten Tomatoes APIs are not available, you'll need to implement web scraping.
+
+## Backend Development
+
+We're using FastAPI for the web framework, SQLAlchemy for ORM, and Pydantic for data validation because that's what i like. Implement the following endpoints:
+
+- POST /login
+- POST /signup
+- GET /movies
+- POST /swipe
+- GET /match
+
+Also, implement real-time matching notifications using WebSocket.
+
+## Frontend Development
+
+Use Vue.js 3 for UI components, Axios for API requests, and Socket.io for real-time features. Develop the following components:
+
+- Login/Signup Page
+- Dashboard to display movie cards
+- Notification/Messaging System
+
+## Testing
+
+Write unit tests for both frontend and backend.
+
+## Deployment
+
+Use Docker for containerization of both frontend and backend. For the initial stages, manual scaling should suffice. Later we can consider Kubernetes for orchestration.
