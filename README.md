@@ -22,6 +22,8 @@ Check out this [article](https://opensource.guide/how-to-contribute/) if you're 
 - Technical Challenge: Work on real-time systems, data scraping, and complex matching algorithms.
 - Practice new skills: Our stack includes Vue.js, FastAPI, PostgreSQL, and various cloud services, providing a learning opportunity across different technologies.
 
+Check out the working draft of our [developer guide]("docs/develop.md").
+
 ## Support
 
 Your financial support will enable us to maintain server costs, API subscriptions, and further development to make CineMatch even better. Every contribution counts, use the sponsor button or contact me at <tanmayagrawa@umass.edu>!
