@@ -1,13 +1,13 @@
 """test file for main.py"""
 import pytest
+from sqlalchemy import create_engine, 
+from sqlalchemy.orm import sessionmaker
 from fastapi.testclient import TestClient
-from sqlalchemy import create_engine
-
 from main import app, get_db
 
 client = TestClient(app)
 
-# test_db_url = "sqlite:///./test.db"
+test_db_url = "sqlite:///./test.db"
 engine = create_engine(test_db_url)
 
 
