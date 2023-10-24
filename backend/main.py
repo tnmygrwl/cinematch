@@ -1,9 +1,8 @@
-from fastapi import FastAPI, WebSocket, Depends, HTTPException
+from fastapi import FastAPI, WebSocket, Depends
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
 from pydantic import BaseModel
-from typing import List
 
 app = FastAPI()
 
