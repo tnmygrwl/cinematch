@@ -1,37 +1,83 @@
-import pytest
-from fastapi.testclient import TestClient
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+# Development
 
-from main import app, get_db  # import your application and dependencies
+This guide will help you set up and run the CineMatch project on your local machine.
 
-# Create a test client using the FastAPI application
-client = TestClient(app)
+## Getting Started
 
-# Create a test database
-test_db_url = "sqlite:///./test.db"
-engine = create_engine(test_db_url)
+- Node.js and npm installed on your machine.
+- Python 3.8 or higher installed on your machine (preferably Python 3.12).
 
-# Override the get_db dependency
-@pytest.fixture
-def override_get_db():
-    try:
-        db = SessionLocal()
-        yield db
-    finally:
-        db.close()
+## Project Structure
 
-app.dependency_overrides[get_db] = override_get_db
+The project is divided into two main parts in a monorepo structure:
 
-# Now you can write tests for each endpoint
-def test_signup():
-    response = client.post("/signup/", json={"username": "testuser"})
-    assert response.status_code == 200
-    assert response.json() == {"username": "testuser", "id": 1}
+- `frontend`: This is where the Vue.js application resides.
+- `backend`: This is where the FastAPI application resides.
 
-def test_login():
-    response = client.post("/login/", data={"username": "testuser"})
-    assert response.status_code == 200
-    assert response.json() == {"message": "Logged in as testuser"}
+## Frontend Setup
 
-# Continue writing tests for other endpoints
+The frontend of the project is built using Vue.js 3. To set up and run the frontend, follow these steps:
+
+1. Navigate to the frontend directory.
+
+2. Install the project dependencies by running the following command:
+
+```bash
+npm install
+```
+
+3. To start the development server, run:
+
+```bash
+npm run serve
+```
+
+The Vue.js application will now be running on <http://localhost:8080>.
+
+## Backend Setup
+
+The backend of the project is built using FastAPI. To set up and run the backend, follow these steps:
+
+1. Navigate to the backend directory.
+
+2. It's recommended to create a virtual environment for the project. You can do this by running:
+
+```bash
+python3 -m venv env
+```
+
+3. Activate the virtual environment:
+
+- On Windows, run: `env\Scripts\activate`
+- On Unix or MacOS, run: `source env/bin/activate`
+
+4. Install the project dependencies:
+   
+```bash
+cd backend
+pip install .
+```
+
+5. To start the development server, run:
+
+```bash
+uvicorn main:app --reload
+```
+
+The FastAPI application will now be running on <http://localhost:8000>.
+
+## Running Tests
+
+To run the tests for the backend, navigate to the backend directory and run:
+
+```bash
+pytest
+```
+
+Note: We're probably going to move to [`just`]("https://github.com/casey/just") for testing and installing dependencies.
+
+## Contributing
+
+When contributing to this project, please ensure that any frontend code is written using Vue.js 3 as per the project requirements. For the backend, we're using FastAPI, SQLAlchemy, and Pydantic. Please refer to the relevant code snippets for examples of how to structure your code.
+
+If you have any questions or need further assistance, feel free to reach out. Happy coding!
