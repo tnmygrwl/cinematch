@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+
+[project]
+name = "cinematch"
+version = "0.1.0"
+description = "CineMatch: the long-distance movie date"
+authors = [
+    {name = "Tanmay Agrawal", email = "tanmayagrawa@umass.edu"},
+]
+license = "MIT"
+readme = "README.md"
+
+[project.urls]
+# Home = "https://example.com/your_project"
+# Documentation = "https://example.com/your_project/docs"
+Source = "https://github.com/tnmygrwl/cinematch"
+
+[project.scripts]
+start = "uvicorn main:app --reload"
+
+[project.dependencies]
+fastapi = "^0.104.0"
+sqlalchemy = "^2.0.22"
+pydantic = "^2.4.2"
+uvicorn = "^0.23.2"
+
+[project.dev-dependencies]
+pytest = "^6.2.5"
+ruff= "^0.1.1"
